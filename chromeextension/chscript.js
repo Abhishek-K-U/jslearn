@@ -1,5 +1,5 @@
 
-let myleads = ["abhi", "ram", "shek"];
+let myleads = [];
 const inputEl = document.getElementById("input-el");
 const ulEl = document.getElementById("ul-el");
 
@@ -9,13 +9,23 @@ const inputBtn = document.getElementById("input-btn");
 
 inputBtn.addEventListener("click", function(){
     myleads.push(inputEl.value);
+    inputEl.value = ""
+    renderleads();
 })
 
-
-for( let i = 0; i<myleads.length; i++){
-    ulEl.innerHTML += "<li>" + myleads[i] + "</li>"
+function renderleads(){
+    let listItems = "";
+    for( let i = 0; i<myleads.length; i++){
+        // listItems += "<li><a target='_blank' href='" + myleads[i] + "'>" + myleads[i] + "</a></li>" 
+        listItems += `
+        <li>
+            <a target='_blank' href='${myleads[i]}'>
+                ${myleads[i]}
+            </a>
+        </li>`
+    }
+    ulEl.innerHTML= listItems;
 }
-
 
 // practise
 // let containerEl = document.getElementById("continer");
