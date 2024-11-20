@@ -1,9 +1,12 @@
 {
     "manifest_version" : 3,
-    "version" : "1.1",
+    "version" : "1.0",
     "name" : "BookMarking",
     "action":{
         "default_popup": "chro.html",
         "default_icon":"doller.png"
-    }
+    },
+    "permessions" : [
+        "tabs"
+    ]
 }
