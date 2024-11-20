@@ -6,7 +6,7 @@
         "default_popup": "chro.html",
         "default_icon":"doller.png"
     },
-    "permessions" : [
+    "permissions" : [
         "tabs"
     ]
 }

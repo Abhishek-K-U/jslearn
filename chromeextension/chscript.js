@@ -19,27 +19,31 @@ if(leadsFromlocalstorage){
     render(myleads);
 }
 
+
+ tabBtn.addEventListener("click", function(){
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        myleads.push(tabs[0].url)
+        localStorage.setItem("myleads", JSON.stringify(myleads))
+        render(myleads)
+    })
+})
+
+
 deleteBtn.addEventListener("dblclick", function(){
-    localStorage.clear();
-    myleads = [];
-    render(myleads);
+    localStorage.clear()
+    myleads = []
+    render(myleads)
 })
 
 inputBtn.addEventListener("click", function(){
-    myleads.push(inputEl.value);
-    inputEl.value = "";
-    localStorage.setItem("myleads", JSON.stringify(myleads));
-    render(myleads);
+    myleads.push(inputEl.value)
+    inputEl.value = ""
+    localStorage.setItem("myleads", JSON.stringify(myleads))
+    render(myleads)
 })
 
 
-tabBtn.addEventListener("click", function(){
-    chrome.tabs.querry({active: true, currentWindow: true}, function(tabs){
-        myleads.push(tabs[0].url)
-        localStorage.setItem("myleads", JSON.stringify(myleads));
-        render(leads)
-    })
-})
+
 
 
 function render(leads){
